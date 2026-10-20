@@ -1,0 +1,4 @@
+# /grade logs one line per grade here. It stays on your machine.
+history/*.jsonl
+
+.DS_Store

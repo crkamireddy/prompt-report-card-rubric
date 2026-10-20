@@ -1,0 +1,76 @@
+{
+  "_comment": "Settled grades for the calibration set. Kept separate from the prompts so a grading pass cannot see the answer before it commits. `accept` lists grades that count as agreement; anything outside it is drift worth investigating. Replace these with your own real prompts as you accumulate them — your prompts calibrate the grader better than invented ones.",
+  "examples": [
+    {
+      "file": "amendment-summarizer.md",
+      "grade": "A-",
+      "accept": [
+        "A",
+        "A-",
+        "B+"
+      ],
+      "why": "Names its downstream reader and why brevity matters, delimits its inputs, specifies output positively and in order, and handles both real failure modes — missing prior clause and ambiguous scope — with a stated reason for one of them. Held off A by the 'Watch:' condition, which leaves 'obligation with a deadline attached' to interpretation.",
+      "patterns": []
+    },
+    {
+      "file": "pr-reviewer.md",
+      "grade": "B",
+      "accept": [
+        "B+",
+        "B",
+        "B-"
+      ],
+      "why": "The three conventions are exactly the right thing to spend rules on — house facts the model cannot infer — and the clean-diff case is handled. Loses ground on an undefined severity scale, an unanchored 'concise', and no guidance for a diff too large or too context-poor to review confidently.",
+      "patterns": [
+        "vague quantifier"
+      ]
+    },
+    {
+      "file": "doc-style-enforcer.md",
+      "grade": "C-",
+      "accept": [
+        "C+",
+        "C",
+        "C-",
+        "D"
+      ],
+      "why": "The most important case in this set, and the one that broke the original grade scale. It would have scored well under a rubric that only rewarded specificity: twelve numbered rules, a precise function-doc contract, real house-specific banned words. But the rules dictate outcomes a capable model handles better from the surrounding document, none carries a reason so none generalizes, several will collide with no stated precedence, and the closing emphasis block now causes overtriggering rather than compliance. Followable and predictable, which is why it sits above marketing-writer.md rather than below it. Score the over-constraint once in Restraint and altitude — charging it again in context, boundaries and calibration double-counts one defect and drives this to a false F.",
+      "patterns": [
+        "over-constraint",
+        "shouting",
+        "unmotivated absolute",
+        "negative-only constraint"
+      ]
+    },
+    {
+      "file": "support-agent.md",
+      "grade": "C",
+      "accept": [
+        "C+",
+        "C",
+        "C-"
+      ],
+      "why": "Role and scope are clear and it is admirably short, but nothing says what a correct answer looks like or what to do when it cannot produce one. 'Don't make it up' names the failure without specifying the behavior that replaces it.",
+      "patterns": [
+        "happy-path-only",
+        "vague quantifier",
+        "unmotivated absolute"
+      ]
+    },
+    {
+      "file": "marketing-writer.md",
+      "grade": "D",
+      "accept": [
+        "C-",
+        "D",
+        "F"
+      ],
+      "why": "Every line is an instruction-shaped wish. No deliverable, no audience, no format, no length, no definition of the conversion it is supposed to drive. A model following this literally has to invent the entire brief.",
+      "patterns": [
+        "wish, not instruction",
+        "vague quantifier",
+        "costume, not a role"
+      ]
+    }
+  ]
+}
