@@ -1,11 +1,13 @@
 # Prompt Report Card
 
-A rubric for grading prompts — the instructions you give an AI model — against current
-prompting best practices. It gives a letter grade and explains what would earn a higher
-one. It deliberately doesn't rewrite your prompt for you. It names what's missing and
-what goes wrong because of it, and leaves the wording to you.
+A rubric for grading agent prompts: instructions that run on their own, again and again,
+with nobody watching. That means system prompts, subagents, skills, scheduled or
+overnight agents, and custom GPTs. A gap in a one-off chat prompt gets fixed by the next
+message. A gap in an agent prompt repeats on every run until someone notices.
 
-It works for one-off chat messages and for system prompts that get reused.
+It gives a letter grade and explains what would earn a higher one. It deliberately
+doesn't rewrite your prompt for you. It names what's missing and what goes wrong because
+of it, and leaves the wording to you. It grades one-off prompts too.
 
 ## The rubric
 
@@ -19,7 +21,7 @@ It's plain text written for a model to follow, but it reads fine as a human chec
 
 **In your browser.** Paste a prompt, get a report card. Free, uses your own Claude
 account:
-https://claude.ai/code/artifact/ff20316d-0e72-41bd-9375-f091be945bd4
+https://claude.ai/artifact/YWEWXd9VY5FnXwExHHhnP5
 
 **Read the rubric as a web page:**
 https://claude.ai/artifact/1bdMptwZpdTxPqhgx2sxoN
@@ -44,6 +46,9 @@ give it the prompt to grade.
 the answers first. After editing the rubric, `/calibrate` re-grades all five and
 reports any that moved, and why.
 
+These five are part of a larger answer key of 21 prompts. The other 16 stay private
+because they came from friends and family or from other people's published work.
+
 ## Sources
 
 Built from Anthropic's
@@ -52,5 +57,10 @@ and
 [The new rules of context engineering for Claude 5 generation models](https://claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models),
 with OpenAI's and Google's prompting guidance cross-checked. The sources are credited
 in the rubric itself.
+
+## License
+
+[CC BY 4.0](LICENSE). You can reuse and adapt this, including commercially, as long as
+you credit Cat Kamireddy and link back here.
 
 Made by [Cat Kamireddy](https://catkamireddy.com).

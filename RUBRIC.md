@@ -117,14 +117,16 @@ it asks for kindness.
 
 ## Grading procedure
 
-1. **Identify what the prompt is for, and which model it runs on.** A system prompt
-   for a production agent, a reusable skill, a one-off chat prompt, and a tool
-   description are judged against different bars. The model matters too — see *Which
-   model this is for* below. Where either isn't stated or obvious, pick the most likely
-   reading, grade against it, and say which you used, so the reader can correct you.
-   Never stop and ask.
+1. **Identify what the prompt is for, which model it runs on, and what sits around
+   it.** A system prompt for a production agent, a reusable skill, a one-off chat
+   prompt, and a tool description are judged against different bars. The model matters
+   too — see *Which model this is for* below — and so does any project, CLAUDE.md, or
+   conversation the prompt is sent inside — see *What sits around the prompt*. Where
+   any of these isn't stated or obvious, pick the most likely reading, grade against
+   it, and say which you used, so the reader can correct you. Never stop and ask.
 2. **Read it as the model would, in both directions.** Follow it literally, in order,
-   with no outside knowledge of the person's intent. Where would you be forced to
+   with no outside knowledge of the person's intent beyond what sits around the
+   prompt. Where would you be forced to
    guess? Those gaps are defects. Then read it again asking the opposite question:
    where does it spend a rule on a decision a capable model would make better from
    context? Those are defects too, and they are the ones authors almost never look
@@ -190,7 +192,9 @@ content needed; Sonnet 5 has its own calibration for response length and for whe
 reaches for a tool.
 
 **A small, fast model** (Haiku 5.5, Haiku 4.5, and the small tiers from other
-companies). Three shifts, and say in the review that you made them:
+companies, such as GPT-6 Luna and Gemini 3.5 Flash-Lite). Go by the tier, not the name:
+Gemini 3.8 Flash is a frontier model despite the "Flash", so none of this applies to it.
+Three shifts, and say in the review that you made them:
 
 - *Knowing when to stop* loses most of its force. Score it out of its full weight but
   only penalize genuine bloat — contradictions, dead preamble, rules that fight each
@@ -250,6 +254,44 @@ it would for Claude — score the Examples dimension the way the small-model shi
 **Any other model.** Mark *Written for the model you're using* as N/A and redistribute
 its weight. The general dimensions carry across model families. Calibration for a
 family with no source here does not, and pretending otherwise gives false confidence.
+
+---
+
+## What sits around the prompt
+
+A prompt is often not the whole of what the model reads. A short message sent inside a
+Claude project sits on top of that project's instructions and files; a Claude Code
+request sits on top of CLAUDE.md, memory, and the repository; a turn deep in a
+conversation sits on everything said before it. The model reads all of it. Grading
+that message as if it stood alone charges it for context the model already has — and
+asking the author to repeat that context in the message would be the *Same rule in two
+places* defect, not an improvement.
+
+**The default, when nothing says otherwise: the prompt is the whole context.** Do not
+invent a project to explain away a gap. A request with no sign of anything around it
+is graded as it stands.
+
+**When the submission shows or says it runs inside something, grade it in place.**
+
+- *The surrounding layer is pasted in* — project instructions, a CLAUDE.md, earlier
+  turns. Read it the way the model would, and score the prompt with that context in
+  front of you, charging only the gaps that remain once both are read together. Grade
+  the prompt, not the layer. Where the two conflict, that is cross-layer conflict,
+  scored under *Written for the model you're using*.
+- *The layer is named but not shown* — "this is in my meal-planning project," "per the
+  doc above." Credit what a layer like that would plausibly carry and nothing more
+  specific: a meal-planning project plausibly says who the household is and what they
+  won't eat; it does not plausibly say which of this week's recipes to double. Name in the review what you
+  assumed was covered, so the reader can check it against the real thing.
+
+Either way, still charge what no surrounding layer would supply, which is the
+specifics of this request. A project can say who the work is for; it cannot say which
+of two readings this message means.
+
+When you graded a prompt as standalone and most of its lost points are missing
+background, add one clause to the "Graded as" line saying that context living in a
+project or earlier conversation would change the score. That invites the correction
+without speculating in the body of the review.
 
 ---
 
@@ -642,8 +684,19 @@ organization, so bullets aren't needed except in the scoring table.
 
 **Grade: [letter]** — one sentence naming the single thing that determined it.
 
-**Graded as** — one line stating what you took this to be and which model you assumed,
-so the reader can correct you if either is wrong.
+**Graded as** — one line stating what you took this to be, which model you assumed,
+and whether you read it standalone or inside surrounding context, so the reader can
+correct you if any of these is wrong.
+
+**What the model has to guess** — the questions this prompt leaves the model to answer
+for itself, every time it runs, each written as the question it would be stuck on:
+"Who is this for?", "What if the file is empty?" One line each, most costly first, at
+most five, and only questions whose answer would change the output. These are the face
+of gaps that *What would make it stronger* explains in full, so they carry no reason of
+their own and never an answer. This section comes before the praise because it is the
+part most readers act on. When the model has nothing important to guess, say so in one
+line. A prompt that says too much usually lands here, and its problems belong under
+*What would make it stronger*.
 
 **Scores** — a compact table of the dimensions, points earned out of possible, and a
 few words each. Mark N/A rows as such.

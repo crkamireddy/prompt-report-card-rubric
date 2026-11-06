@@ -1,5 +1,5 @@
 ---
-description: Grade a prompt against current Anthropic best practices and explain how to earn a higher grade
+description: Grade a prompt against current prompting best practices and explain how to earn a higher grade
 argument-hint: [paste your prompt; add "for Haiku" or similar if it isn't for a frontier model]
 allowed-tools: Read, Bash
 ---
